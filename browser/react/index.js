@@ -23,3 +23,25 @@ ReactDOM.render(
   </Router>,
   document.getElementById('app')
 );
+
+// need to use this for node_modules/musicmetadata/lib.index.js, b/c some albums don't have album art:
+
+// function cleanupPicture (picture) {
+//   var newFormat
+//   if (picture && picture.format) {
+//     var split = picture.format.toLowerCase().split('/')
+//     newFormat = (split.length > 1) ? split[1] : split[0]
+//     if (newFormat === 'jpeg') newFormat = 'jpg'
+//     return { format: newFormat, data: picture.data }
+//   } else if (picture) {
+//     newFormat = 'jpg'
+//     return { format: newFormat, data: picture.data }
+//   }
+//   return { format: newFormat, data: null }
+// }
+
+// & need to take return statement out of node_modules/musicmetadata/lib/id3v1.js:
+
+// if (header !== 'TAG') {
+//   return done(new Error('Could not find metadata header'))
+// }
