@@ -28,11 +28,3 @@ export default class FilterableArtistsContainer extends Component {
 		);
 	}
 }
-
-[{
-	name: 'artist1',
-	id: 1
-}, {
-	name: 'artist2',
-	id: 2
-}]
