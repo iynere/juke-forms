@@ -1,26 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import NewPlaylist from '../components/NewPlaylist';
-import axios from 'axios';
 
-const NewPlaylistContainer = () => {
+export default class NewPlaylistContainer extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			inputValue: '',
+			disabled: true
+		};
+		
+		this.handleChange = this.handleChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
 
+	handleChange(event) {
+		const input = event.target.value;
+		this.setState({
+			inputValue: input.length < 17 ? input : input.slice(0, 16),
+			disabled: !input.length
+		});
+	}
+	
+	onSubmit(event) {
+		event.preventDefault();
+		event.target.value = '';
+		this.setState({
+			inputValue: event.target.value,
+			disabled: true
+		});
+	}
 
-
-	// componentDidMount() {
-	// 	axios.post(`/api/playlists`, { /** req.body contents go here! */ })
-	// 		.then(res => res.data)
-	// 		.then(result => {
-	// 			console.log(result) // response json from the server!
-	// 	});
-	// }
-
-
-	return (
-		<div>
-			<NewPlaylist />
-		</div>
-	);
-
-};
-
-export default NewPlaylistContainer;
+	render() {
+		return (
+			<div>
+				<NewPlaylist
+					onSubmit={this.onSubmit}
+					handleChange={this.handleChange} 
+					inputValue={this.state.inputValue}
+					disabled={this.state.disabled}
+				/>
+			</div>
+		);
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const Sidebar = props => {
+const Sidebar = () => {
 
   return (
     <sidebar>
@@ -20,13 +20,13 @@ const Sidebar = props => {
       <section>
         <h4 className="text-muted">PLAYLISTS</h4>
         <h4>
-          <Link className="btn btn-primary btn-block" to={'/playlists'}>
+          <Link className="btn btn-primary btn-block" to={'/new-playlist'}>
             <span className="glyphicon glyphicon-plus"></span> PLAYLIST
           </Link>
         </h4>
       </section>
     </sidebar>
   );
-}
+};
 
 export default Sidebar;
