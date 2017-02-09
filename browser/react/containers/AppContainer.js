@@ -8,7 +8,6 @@ import Albums from '../components/Albums.js';
 import Album from '../components/Album';
 import Sidebar from '../components/Sidebar';
 import Player from '../components/Player';
-import 
 
 import { convertAlbum, convertAlbums, convertSong, skip } from '../utils';
 
@@ -30,8 +29,8 @@ export default class AppContainer extends Component {
 
     Promise
       .all([
-        axios.get('/api/artists/'),
-        axios.get('/api/albums/')
+        axios.get('/api/albums/'),
+        axios.get('/api/artists/')
       ])
       .then(res => res.map(r => r.data))
       .then(data => this.onLoad(...data));
