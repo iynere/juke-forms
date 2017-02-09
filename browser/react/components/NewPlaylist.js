@@ -1,7 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 const NewPlaylist = props => {
-
 	return (
 		<div className="well">
 			<form className="form-horizontal" onSubmit={props.onSubmit}>

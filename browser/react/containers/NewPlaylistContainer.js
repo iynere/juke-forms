@@ -22,6 +22,7 @@ export default class NewPlaylistContainer extends Component {
 	}
 	
 	onSubmit(event) {
+		this.props.createNewPlaylist(this.state.inputValue);
 		event.preventDefault();
 		event.target.value = '';
 		this.setState({

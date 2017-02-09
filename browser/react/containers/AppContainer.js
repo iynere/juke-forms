@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
 import initialState from '../initialState';
@@ -25,8 +25,17 @@ export default class AppContainer extends Component {
     this.selectArtist = this.selectArtist.bind(this);
   }
 
-  componentDidMount () {
+  createNewPlaylist(playlistName) {
+    axios.post('/api/playlists', {
+      name: playlistName
+    }).then(res => res.data)
+      .then(newPlaylist => {
+        return newPlaylist;
+      })
+      .catch(console.error);
+  }
 
+  componentDidMount () {
     Promise
       .all([
         axios.get('/api/albums/'),
@@ -130,7 +139,8 @@ export default class AppContainer extends Component {
       toggleOne: this.toggleOne,
       toggle: this.toggle,
       selectAlbum: this.selectAlbum,
-      selectArtist: this.selectArtist
+      selectArtist: this.selectArtist,
+      createNewPlaylist: this.createNewPlaylist
     });
 
     return (
