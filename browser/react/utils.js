@@ -1,3 +1,17 @@
+export const sortArtists = (artists) => {
+  const sorted = artists.sort((a,b) => {
+    if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -1;
+    }
+    if (b.name.toLowerCase() < a.name.toLowerCase()) {
+      return 1;
+    }
+    return 0;
+  });
+  
+  return sorted;
+};
+
 export const convertSong = (song) => {
   song.audioUrl = `/api/songs/${song.id}/audio`;
   return song;

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Songs from '../components/Songs';
 
-class Album extends React.Component {
+export default class Album extends Component {
 
   componentDidMount () {
     const selectAlbum = this.props.selectAlbum;
@@ -31,5 +31,3 @@ class Album extends React.Component {
     );
   }
 }
-
-export default Album;
